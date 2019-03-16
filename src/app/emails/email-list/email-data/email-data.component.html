@@ -1,0 +1,34 @@
+<div style="border-style:ridge">
+    <form style="margin-left:20px;margin-bottom:10px">
+        <div style="text-align:center" width="50" height="10" *ngIf = "isLoading">
+            <img src="https://media.giphy.com/media/y1ZBcOGOOtlpC/giphy.gif" alt="Loading">
+        </div>
+        <div class="formGroup" *ngIf = "!isLoading">
+            <div class="row">
+              <div class="col-md-1">
+                <h4>From:</h4>
+              </div>
+              <div class="col-md-7">
+                  <h4>{{email.from}}</h4>
+              </div>
+              <label>Time: {{email.received | date:'medium'}}</label>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-md-1 col-sm-1">
+                  <h5>Subject:</h5>
+                </div>
+                <div class="col-md-7 col-sm-7">
+                    <h5>{{email.subject}}</h5>
+                  </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <textarea style="width:150%;" rows="10" placeholder="Text Message">{{email.text}}</textarea>
+                </div>
+            </div>
+            <br/>
+        </div>
+      </form>
+</div>

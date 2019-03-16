@@ -1,0 +1,36 @@
+<div style="border-style:ridge">
+    <div class="row" style="border-style:groove">
+        <div class="col-sm-1" >
+            <label style="margin-left: 50%"></label>
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <label>From</label>
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <label>Subject</label>
+        </div>
+    </div>
+    <div style="text-align:center" width="50" height="10" *ngIf = "isLoading">
+      <img src="https://media.giphy.com/media/y1ZBcOGOOtlpC/giphy.gif" alt="Loading">
+    </div>
+    <div class="row" style="border-style:outset;" *ngFor = "let email of Emails">
+        <div class="col-sm-1 checkbox-group">
+            <input type="checkbox" class="checkbox checkbox-primary" style="margin-left:50%">
+        </div>
+        <a routerLink="/data" (click)="getEmailInfo(email.id)">
+            <div class="col-md-3 col-sm-3">
+                {{email.from}}
+            </div>
+            <div class="col-md-5 col-sm-5">
+                {{email.subject}}
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-3" style="margin:15px">
+            <label>
+              <button class="btn btn-danger"><label>Delete</label></button>
+            </label>
+          </div>
+    </div>
+</div>
